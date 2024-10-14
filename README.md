@@ -39,3 +39,4 @@
 [![Linkedin](https://img.shields.io/badge/-andreimick-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/andrei-mick/)](https://www.linkedin.com/in/andrei-mick/)
 [![Gmail Badge](https://img.shields.io/badge/-andreimickk@gmail.com-006bed?style=flat-square&logo=Gmail&logoColor=white&link=mailto:andreimickk@gmail.com)](mailto:andreimickk@gmail.com)
 [![GitHub](https://img.shields.io/github/followers/andreimick?label=follow&style=social)](https://github.com/andreimick)
+
