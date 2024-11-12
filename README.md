@@ -5,7 +5,7 @@
 - 🤔 Explorando novas tecnologias e desenvolvendo soluções de software.
 - 🎓 Estudando Sistemas da Informação na UNISANTOS (Universidade Católica de Santos).
 - 💼 Atualmente como Engenheiro Civil na Menacker Engenharia.
-- 🌱 Aprendendo mais sobre Python, C++, HLTM.
+- 🌱 Aprendendo mais sobre Python, C++, HTML.
 
 ## Minhas Skills
 
