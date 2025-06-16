@@ -2,7 +2,7 @@
 
 ###
 
-<h2 align="center">⋊ SOCIAL MEDIA ⋉</h2>
+<h3 align="center">⋊ SOCIAL MEDIA ⋉</h3>
 
 ###
 
@@ -35,7 +35,7 @@
 
 ###
 
-<h2 align="left">╭ TECHS IN LEARNING ╯</h2>
+<h3 align="left">╭ TECHS IN LEARNING ╯</h3>
 
 ###
 
