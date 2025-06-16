@@ -2,7 +2,7 @@
 
 ###
 
-<h3 align="center">⋊ SOCIAL MEDIA ⋉</h3>
+<h1 align="center">⋊ SOCIAL MEDIA ⋉</h1>
 
 ###
 
@@ -35,7 +35,7 @@
 
 ###
 
-<h3 align="left">╭ TECHS IN LEARNING ╯</h3>
+<h1 align="left">╭ TECHS IN LEARNING ╯</h1>
 
 ###
 
@@ -49,11 +49,7 @@
 
 ###
 
-<img align="right" src="https://visitor-badge.laobi.icu/badge?page_id=andreimick.andreimick&"  />
-
-###
-
-<h2 align="left">╭ KNOWLEDGES ╯</h2>
+<h1 align="left">╭ KNOWLEDGES ╯</h1>
 
 ###
 
@@ -72,5 +68,9 @@
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" height="40" alt="github logo"  />
 </div>
+
+###
+
+<img align="right" src="https://visitor-badge.laobi.icu/badge?page_id=andreimick.andreimick&"  />
 
 ###
