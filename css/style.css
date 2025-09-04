@@ -1,0 +1,1074 @@
+/*====================================
+  1. Variáveis de Cores e Configurações
+======================================*/
+:root {
+    /* Modo Escuro (Padrão) */
+    --primary-bg: #0D0D1A; /* Fundo principal escuro */
+    --secondary-bg: #1A1A2E; /* Fundo de seção ligeiramente mais claro */
+    --accent-color: #00FFFF; /* Ciano Neon (brilhante) */
+    --text-light: #E0E0E0; /* Texto claro principal */
+    --text-dark: #333333; /* Texto escuro para contraste */
+    --border-color: rgba(0, 255, 255, 0.1); /* Borda com brilho sutil */
+    --shadow-color: rgba(0, 255, 255, 0.1); /* Sombra com brilho sutil */
+    --hover-glow: rgba(0, 255, 255, 0.3); /* Brilho mais intenso no hover */
+    --text-glow-subtle: rgba(0, 255, 255, 0.15); /* Brilho do texto sutil */
+    --text-glow-active: rgba(0, 255, 255, 0.25); /* Brilho do texto ativo */
+    --button-text-color-primary: var(--primary-bg); /* Cor do texto do botão primário */
+
+    /* Altura do cabeçalho para scroll-padding-top */
+    --header-height: 80px;
+
+    /* Cores para Ícones de Tecnologia (Font Awesome) */
+    --html5-color: #E34F26;
+    --css3-color: #1572B6;
+    --js-color: #F7DF1E;
+    --python-color: #3776AB;
+    --java-color: #007396;
+    --database-color: #4479A1;
+    --react-color: #61DAFB;
+    --git-color: #F05032;
+
+    /* Code background colors */
+    --code-line-color: rgba(0, 255, 255, 0.01); /* Very subtle cyan for code lines */
+    --code-line-hover-color: rgba(0, 255, 255, 0.08); /* More visible on hover */
+
+    /* NEW: Grid background colors (dark mode - not active, but defined for consistency) */
+    --grid-line-color: rgba(0, 255, 255, 0.01);
+}
+
+/* Modo Claro - PALETA REVISADA E PADRONIZADA */
+:root.light-mode {
+    --primary-bg: #F0F2F5; /* Fundo principal claro (cinza muito suave) */
+    --secondary-bg: #FFFFFF; /* Fundo de seção claro (branco puro) */
+    --accent-color: #007AFF; /* Azul vibrante e moderno para o acento */
+    --text-light: #333333; /* Texto escuro predominante */
+    --text-dark: #FFFFFF; /* Texto para contraste (ex: em botões de acento) */
+    --border-color: rgba(0, 122, 255, 0.15); /* Borda sutil azul */
+    --shadow-color: rgba(0, 122, 255, 0.08); /* Sombra azul suave */
+    --hover-glow: rgba(0, 122, 255, 0.25); /* Brilho azul no hover */
+    --text-glow-subtle: rgba(0, 122, 255, 0.05);
+    --text-glow-active: rgba(0, 122, 255, 0.15);
+    --button-text-color-primary: var(--text-dark); /* Texto branco no botão primário do modo claro */
+
+    /* Code background colors for light mode */
+    --code-line-color: rgba(0, 122, 255, 0.02); /* Subtle blue for code lines */
+    --code-line-hover-color: rgba(0, 122, 255, 0.05); /* More visible on hover */
+
+    /* NEW: Grid background colors (light mode - actively used) */
+    --grid-line-color: rgba(0, 122, 255, 0.03); /* Slightly more visible blue for grid */
+}
+
+
+/*====================================
+  2. Reset Básico e Estilos Globais
+======================================*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Garante scroll suave para âncoras */
+    scroll-padding-top: var(--header-height); /* Offset para cabeçalho fixo */
+    overflow-y: scroll; /* GARANTE A ROLAGEM VERTICAL NO HTML */
+    overflow-x: hidden; /* EVITA A ROLAGEM HORIZONTAL NO HTML */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--text-light); /* Cor do texto principal */
+    background-color: var(--primary-bg); /* Fundo principal */
+    overflow-x: hidden; /* Evita scroll horizontal do body */
+    position: relative;
+    background-image: none; /* Garante que não haja imagem de fundo padrão no body */
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Garantia de fundo sólido para o body em ambos os modos */
+:root.light-mode body {
+    background-image: none;
+}
+
+/* NEW: Animated Grid Background (body::before) */
+body::before {
+    content: '';
+    position: fixed; /* Fixa o elemento ao viewport para que ele cubra todo o fundo */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2; /* Ensure it's behind the code lines and content */
+    pointer-events: none; /* Ignora eventos de mouse/toque */
+
+    background:
+        repeating-linear-gradient(45deg,
+            transparent,
+            transparent 19px,
+            var(--grid-line-color) 20px, /* Linha fina */
+            transparent 21px
+        ),
+        repeating-linear-gradient(-45deg,
+            transparent,
+            transparent 19px,
+            var(--grid-line-color) 20px,
+            transparent 21px
+        );
+    background-size: 40px 40px; /* Espaçamento entre as linhas */
+    animation: backgroundShift 80s linear infinite alternate; /* Movimento muito lento */
+    opacity: 0; /* Hidden by default in dark mode */
+    transition: background 0.5s ease, opacity 0.5s ease;
+}
+
+/* Adjust grid for Light Mode */
+:root.light-mode body::before {
+    opacity: 0.7; /* Visible in light mode */
+    background:
+        repeating-linear-gradient(45deg,
+            transparent,
+            transparent 19px,
+            var(--grid-line-color) 20px,
+            transparent 21px
+        ),
+        repeating-linear-gradient(-45deg,
+            transparent,
+            transparent 19px,
+            var(--grid-line-color) 20px,
+            transparent 21px
+        );
+}
+
+/* Animation for the grid background */
+@keyframes backgroundShift {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+
+/* Animated Typing Code Background (body::after) */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensure it's behind the content, but above grid if any */
+    pointer-events: none;
+    background-image:
+        /* Simulate subtle code lines (horizontal) */
+        repeating-linear-gradient(0deg, var(--code-line-color) 0px, transparent 1px, transparent 25px),
+        /* Simulate subtle code lines (vertical) */
+        repeating-linear-gradient(90deg, var(--code-line-color) 0px, transparent 1px, transparent 25px);
+    background-size: 25px 25px; /* Spacing between lines */
+    opacity: 0.4; /* Subtle opacity */
+    animation: codeShift 90s linear infinite; /* Slower movement */
+    filter: blur(0.6px) brightness(1); /* Subtle blur for ethereal look */
+    transition: opacity 0.5s ease, filter 0.5s ease, background-image 0.5s ease;
+}
+
+body:hover::after {
+    opacity: 0.6; /* Slightly more visible on hover */
+    filter: blur(0px) brightness(1.1); /* Sharper and brighter on hover */
+    background-image:
+        repeating-linear-gradient(0deg, var(--code-line-hover-color) 0px, transparent 1px, transparent 25px),
+        repeating-linear-gradient(90deg, var(--code-line-hover-color) 0px, transparent 1px, transparent 25px);
+}
+
+/* Animation for the code background */
+@keyframes codeShift {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+/* Light mode adjustments for typing code background */
+:root.light-mode body::after {
+    background-image:
+        repeating-linear-gradient(0deg, var(--code-line-color) 0px, transparent 1px, transparent 25px),
+        repeating-linear-gradient(90deg, var(--code-line-color) 0px, transparent 1px, transparent 25px);
+    opacity: 0.25; /* Less prominent in light mode */
+    filter: blur(0.4px) brightness(1);
+}
+
+:root.light-mode body:hover::after {
+    opacity: 0.4;
+    filter: blur(0px) brightness(1.05);
+    background-image:
+        repeating-linear-gradient(0deg, var(--code-line-hover-color) 0px, transparent 1px, transparent 25px),
+        repeating-linear-gradient(90deg, var(--code-line-hover-color) 0px, transparent 1px, transparent 25px);
+}
+
+
+/*====================================
+  3. Preloader
+======================================*/
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+    opacity: 1;
+    visibility: visible;
+}
+
+#preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader {
+    border: 8px solid rgba(0, 255, 255, 0.15); /* Borda mais suave */
+    border-top: 8px solid var(--accent-color);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+/*====================================
+  4. Header e Navegação
+======================================*/
+header {
+    background: var(--primary-bg);
+    padding: 20px 0;
+    border-bottom: 2px solid var(--border-color);
+    box-shadow: 0 0 8px var(--shadow-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: var(--header-height);
+}
+
+.logo img {
+    height: 60px;
+    transition: transform 0.3s ease;
+}
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+/* Seletor de Tema */
+.theme-switcher {
+    margin-left: auto;
+    margin-right: 30px;
+}
+
+.theme-switcher button {
+    background: none;
+    border: none;
+    color: var(--accent-color);
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.2s ease, text-shadow 0.3s ease;
+    padding: 5px;
+    outline: none;
+}
+
+.theme-switcher button:hover {
+    color: var(--text-light); /* Cor do texto principal no hover */
+    transform: scale(1.1);
+    text-shadow: 0 0 8px var(--accent-color);
+}
+/* Ícones de sol/lua */
+.theme-switcher button .fa-moon { display: block; }
+.theme-switcher button .fa-sun { display: none; }
+:root.light-mode .theme-switcher button .fa-moon { display: none; }
+:root.light-mode .theme-switcher button .fa-sun {
+    display: block;
+    color: var(--accent-color); /* A cor do sol será o accent-color do modo claro */
+}
+
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-links li {
+    margin-left: 30px;
+    padding-bottom: 12px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--accent-color);
+    font-weight: bold;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.95em;
+    transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    box-sizing: border-box;
+}
+.nav-links a::after { /* Efeito de underline animado no HOVER */
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease-in-out;
+}
+.nav-links a:hover::after { width: 100%; }
+.nav-links a:hover {
+    color: var(--text-light); /* Cor do texto principal no hover */
+    text-shadow: 0 0 3px var(--accent-color), 0 0 6px var(--text-glow-subtle);
+    transform: translateY(-2px);
+}
+
+/* Scroll Spy - Estilo para o link de navegação ativa */
+.nav-links a.active {
+    color: var(--text-light); /* Cor do texto principal para o ativo */
+    text-shadow: 0 0 3px var(--accent-color), 0 0 8px var(--text-glow-active);
+}
+.nav-links li.active-section::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease-in-out;
+}
+
+
+/*====================================
+  5. Seção Hero
+======================================*/
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/background1.png') no-repeat center center/cover;
+    color: var(--text-light); /* AJUSTADO: Usa a variável de cor para o modo escuro */
+    text-align: center;
+    padding: 120px 20px;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden; /* Mantido para o efeito de grade no hero, não afeta o scroll global */
+    transition: background 0.5s ease, color 0.5s ease;
+}
+/* Hero no modo claro */
+:root.light-mode .hero {
+    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('../img/background1.png') no-repeat center center/cover;
+    background-size: cover;
+    color: var(--text-light); /* Texto escuro no modo claro */
+}
+
+.hero::before { /* Efeito de grade sutil no hero */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(0,255,255,0.02) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(0,255,255,0.02) 1px, transparent 1px);
+    background-size: 30px 30px;
+    opacity: 0.5;
+    z-index: 1;
+    transition: background-image 0.5s ease, opacity 0.5s ease;
+}
+/* Efeito de grade no hero no modo claro */
+:root.light-mode .hero::before {
+    background-image: linear-gradient(to right, rgba(0, 123, 255, 0.05) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(0, 123, 255, 0.05) 1px, transparent 1px);
+    opacity: 0.8;
+}
+
+.hero h1 {
+    font-family: 'Fira Code', monospace;
+    font-size: 4em;
+    margin-bottom: 25px;
+    text-shadow: 0 0 5px var(--accent-color), 0 0 10px var(--text-glow-subtle); /* AJUSTADO: Sombra mais sutil */
+    animation: fadeInScale 1s ease-out forwards;
+    position: relative;
+    z-index: 2;
+    transition: color 0.5s ease, text-shadow 0.5s ease;
+}
+/* H1 do hero no modo claro */
+:root.light-mode .hero h1 {
+    color: var(--text-light); /* Texto escuro */
+    text-shadow: 0 0 8px var(--accent-color), 0 0 15px var(--text-glow-subtle);
+}
+
+.hero p {
+    font-size: 1.3em;
+    margin-bottom: 40px;
+    max-width: 800px;
+    line-height: 1.8;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 0.5s forwards;
+    position: relative;
+    z-index: 2;
+    transition: color 0.5s ease;
+}
+/* Parágrafo do hero no modo claro */
+:root.light-mode .hero p {
+    color: var(--text-light); /* Texto escuro */
+}
+
+/* Animações de entrada do hero */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+
+/*====================================
+  6. Botões e Elementos Interativos
+======================================*/
+.btn {
+    display: inline-block;
+    background: var(--accent-color);
+    color: var(--button-text-color-primary); /* Usa a variável para cor do texto do botão */
+    padding: 15px 35px;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, color 0.3s ease;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 0 6px var(--accent-color);
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 1s forwards;
+}
+.btn:hover {
+    background: var(--text-light); /* Cor de texto principal no hover */
+    color: var(--primary-bg); /* Cor de fundo principal no hover */
+    transform: translateY(-3px);
+    box-shadow: 0 0 12px var(--accent-color), 0 0 25px var(--hover-glow);
+}
+/* Botão primário hover no modo claro */
+:root.light-mode .btn:hover {
+    background: var(--text-light); /* Texto escuro no hover do modo claro */
+    color: var(--secondary-bg); /* Fundo de seção no hover do modo claro */
+}
+
+
+/* Botão pequeno para portfolio */
+.btn-small {
+    display: inline-block;
+    background: transparent;
+    color: var(--accent-color);
+    padding: 10px 20px;
+    text-decoration: none;
+    border: 1px solid var(--accent-color);
+    border-radius: 20px;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-top: 15px;
+}
+.btn-small:hover {
+    background: var(--accent-color);
+    color: var(--primary-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 0 8px var(--accent-color);
+}
+/* Botão pequeno hover no modo claro */
+:root.light-mode .btn-small:hover {
+    color: var(--text-dark); /* Texto branco no hover do modo claro */
+}
+
+
+/*====================================
+  7. Seções de Conteúdo Gerais
+======================================*/
+.section-padding {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto 40px auto;
+    text-align: center;
+    background-color: var(--secondary-bg);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4), 0 0 6px var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.5s ease, border-color 0.5s ease;
+}
+/* Seção no modo claro */
+:root.light-mode .section-padding {
+    background-color: var(--secondary-bg); /* Branco */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1), 0 0 6px var(--border-color);
+    border-color: var(--border-color);
+}
+
+h2 {
+    font-family: 'Fira Code', monospace;
+    font-size: 3em;
+    margin-bottom: 50px;
+    color: var(--accent-color);
+    text-shadow: 0 0 4px var(--shadow-color); /* AJUSTADO: Sombra mais sutil */
+    text-transform: uppercase;
+    transition: color 0.5s ease, text-shadow 0.5s ease;
+}
+/* H2 no modo claro */
+:root.light-mode h2 {
+    color: var(--accent-color);
+    text-shadow: 0 0 6px var(--shadow-color);
+}
+
+.section-padding p {
+    font-size: 1.1em;
+    max-width: 900px;
+    margin: 0 auto 20px auto;
+    color: var(--text-light); /* Cor do texto principal */
+    transition: color 0.5s ease;
+}
+
+
+/*====================================
+  8. Grids (Áreas, Serviços, Portfolio, Tecnologias)
+======================================*/
+.areas-grid, .services-grid, .portfolio-grid, .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.area-item, .service-item, .portfolio-item, .tech-item, .member-card {
+    background: var(--primary-bg);
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), 0 0 6px var(--border-color);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease; /* AJUSTADO: Adicionado 'color' */
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Itens no modo claro */
+:root.light-mode .area-item, :root.light-mode .service-item, :root.light-mode .portfolio-item, :root.light-mode .tech-item, :root.light-mode .member-card {
+    background: var(--secondary-bg); /* Branco */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1), 0 0 6px var(--border-color);
+    border-color: var(--border-color);
+}
+
+
+.area-item:hover, .service-item:hover, .tech-item:hover, .member-card:hover, .portfolio-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 12px var(--accent-color);
+    animation: cardPulse 1s ease infinite alternate; /* NOVO: Pulsação sutil */
+}
+/* Itens hover no modo claro */
+:root.light-mode .area-item:hover, :root.light-mode .service-item:hover, :root.light-mode .tech-item:hover, :root.light-mode .member-card:hover, :root.light-mode .portfolio-item:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2), 0 0 12px var(--accent-color);
+    animation: cardPulseLight 1s ease infinite alternate; /* NOVO: Pulsação sutil para o modo claro */
+}
+
+/* Novas animações de pulsação de sombra (NOVO) */
+@keyframes cardPulse {
+    0% { box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 12px var(--accent-color); }
+    100% { box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7), 0 0 18px var(--hover-glow); }
+}
+@keyframes cardPulseLight {
+    0% { box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2), 0 0 12px var(--accent-color); }
+    100% { box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3), 0 0 18px var(--hover-glow); }
+}
+
+
+.portfolio-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease, max-height 0.5s ease, padding 0.5s ease, margin 0.5s ease;
+}
+/* O hover do portfolio-item foi consolidado com os outros cards acima */
+
+.portfolio-item.hidden {
+    opacity: 0;
+    max-height: 0; /* Para recolher verticalmente */
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    border: none;
+    overflow: hidden;
+    transform: scale(0.8);
+}
+.portfolio-item:not(.hidden) {
+    max-height: 500px; /* Um valor alto para garantir que ele se expanda. Ajuste se o conteúdo for maior */
+    padding: 35px; /* Padding original */
+    margin-bottom: 40px; /* Margem original */
+    transform: scale(1);
+    opacity: 1;
+}
+
+
+/* Filtros de Portfólio */
+.portfolio-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 50px;
+    margin-top: -20px;
+}
+
+.filter-btn {
+    background: transparent;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 0 5px var(--shadow-color);
+}
+.filter-btn:hover {
+    background: var(--accent-color);
+    color: var(--primary-bg);
+    box-shadow: 0 0 12px var(--accent-color);
+    transform: translateY(-2px);
+}
+/* Botão de filtro hover no modo claro */
+:root.light-mode .filter-btn:hover {
+    color: var(--text-dark); /* Texto branco no hover do modo claro */
+}
+
+.filter-btn.active {
+    background: var(--accent-color);
+    color: var(--primary-bg);
+    box-shadow: 0 0 15px var(--accent-color), 0 0 30px var(--hover-glow);
+    transform: scale(1.02);
+    border-color: var(--accent-color);
+}
+/* Botão de filtro ativo no modo claro */
+:root.light-mode .filter-btn.active {
+    color: var(--text-dark); /* Texto branco no modo claro */
+}
+
+
+/* Estilos para Tecnologias */
+.tech-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 180px;
+}
+.tech-icon {
+    font-size: 4em;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease, text-shadow 0.3s ease, color 0.5s ease, filter 0.3s ease; /* Adicionado filter para transição */
+}
+.tech-item:hover .tech-icon {
+    transform: translateY(-5px) scale(1.1);
+    text-shadow: 0 0 10px currentColor; /* Brilho com a cor do próprio ícone */
+    filter: blur(0.5px); /* NOVO: Desfoque sutil */
+    animation: techGlitch 0.4s steps(2, end) infinite alternate; /* NOVO: Animação de glitch/tremor */
+}
+
+/* Nova animação de glitch para ícones de tecnologia (NOVO) */
+@keyframes techGlitch {
+    0% { transform: translate(0, 0); filter: blur(0); }
+    25% { transform: translate(1px, -1px); filter: blur(0.5px); }
+    50% { transform: translate(-1px, 1px); filter: blur(0); }
+    75% { transform: translate(1px, 1px); filter: blur(0.5px); }
+    100% { transform: translate(-1px, -1px); filter: blur(0); }
+}
+
+/* Cores específicas para ícones de tecnologia */
+.html5-color { color: var(--html5-color); }
+.css3-color { color: var(--css3-color); }
+.js-color { color: var(--js-color); }
+.python-color { color: var(--python-color); }
+.java-color { color: var(--java-color); }
+.database-color { color: var(--database-color); }
+.react-color { color: var(--react-color); }
+.git-color { color: var(--git-color); }
+
+
+/*====================================
+  9. Seção Equipe
+======================================*/
+.team-grid {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.member-card {
+    flex-basis: 350px;
+    max-width: 45%;
+    background: var(--primary-bg);
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), 0 0 6px var(--border-color);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.5s ease, border-color 0.5s ease;
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+/* Member card no modo claro */
+:root.light-mode .member-card {
+    background: var(--secondary-bg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1), 0 0 6px var(--border-color);
+    border-color: var(--border-color);
+}
+/* O hover do member-card foi consolidado com os outros cards acima */
+
+.member-card img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 3px solid var(--accent-color);
+    box-shadow: 0 0 8px var(--accent-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.5s ease;
+}
+/* Imagem do membro no modo claro */
+:root.light-mode .member-card img {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 8px var(--accent-color);
+}
+.member-card img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 18px var(--accent-color), 0 0 30px var(--hover-glow);
+}
+
+
+.member-social-links {
+    margin-top: 20px;
+}
+.member-social-links a {
+    color: var(--accent-color);
+    font-size: 1.8em;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.2s ease, text-shadow 0.3s ease;
+}
+.member-social-links a:hover {
+    color: var(--text-light); /* Cor do texto principal no hover */
+    transform: translateY(-3px);
+    text-shadow: 0 0 6px var(--accent-color);
+}
+/* Links sociais do footer hover no modo claro */
+:root.light-mode .member-social-links a:hover {
+    color: var(--accent-color);
+    text-shadow: 0 0 6px var(--accent-color);
+}
+
+
+/*====================================
+  10. Formulário de Contato
+======================================*/
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+}
+
+.contact-form input, .contact-form textarea {
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1.1em;
+    background-color: var(--primary-bg);
+    color: var(--text-light); /* Cor do texto principal */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.5s ease, color 0.5s ease;
+}
+/* Inputs do formulário no modo claro */
+:root.light-mode .contact-form input, :root.light-mode .contact-form textarea {
+    background-color: var(--secondary-bg); /* Branco */
+    color: var(--text-light); /* Texto escuro */
+    border-color: var(--border-color);
+}
+
+.contact-form input::placeholder, .contact-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    transition: color 0.5s ease;
+}
+/* Placeholders no modo claro */
+:root.light-mode .contact-form input::placeholder, :root.light-mode .contact-form textarea::placeholder {
+    color: rgba(51, 51, 51, 0.5); /* Cinza escuro */
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 8px var(--accent-color), 0 0 15px var(--hover-glow); /* AJUSTADO: Aumentado o brilho */
+    animation: focusGlow 1.5s infinite alternate ease-in-out; /* NOVO: Animação de brilho pulsante sutil */
+}
+
+/* Nova animação de brilho para campos de formulário em foco (NOVO) */
+@keyframes focusGlow {
+    0% { box-shadow: 0 0 8px var(--accent-color), 0 0 15px var(--hover-glow); }
+    100% { box-shadow: 0 0 12px var(--accent-color), 0 0 25px var(--hover-glow); }
+}
+
+
+/* Mensagem de sucesso do formulário */
+.contact-success-message {
+    background: var(--secondary-bg);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5), 0 0 6px var(--shadow-color);
+    margin-top: 25px;
+    margin-bottom: 50px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+}
+/* Mensagem de sucesso no modo claro */
+:root.light-mode .contact-success-message {
+    background: var(--secondary-bg);
+    border-color: var(--border-color);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1), 0 0 6px var(--shadow-color);
+}
+
+/* Efeito de glitch sutil na borda (opcional, para um toque mais "tech") */
+.contact-success-message::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--accent-color) 0%, transparent 25%, var(--accent-color) 50%, transparent 75%, var(--accent-color) 100%);
+    background-size: 200% 200%;
+    z-index: -1;
+    border-radius: 12px;
+    opacity: 0.05;
+    animation: borderGlitch 10s infinite linear;
+    transition: background 0.5s ease, opacity 0.5s ease;
+}
+@keyframes borderGlitch {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+.contact-success-message h3 {
+    font-family: 'Fira Code', monospace;
+    color: var(--accent-color);
+    font-size: 1.5em;
+    text-shadow: 0 0 4px var(--shadow-color);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: 0.05em;
+    transition: color 0.5s ease, text-shadow 0.5s ease;
+}
+.success-icon {
+    font-size: 1.0em;
+    color: limegreen;
+    text-shadow: 0 0 4px limegreen;
+    transition: color 0.5s ease, text-shadow 0.5s ease;
+}
+:root.light-mode .success-icon {
+    color: #28a745; /* Verde mais vibrante no modo claro */
+    text-shadow: 0 0 4px rgba(40, 167, 69, 0.5);
+}
+
+.contact-success-message p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.85em;
+    color: var(--text-light); /* Cor do texto principal */
+    margin-bottom: 0;
+    line-height: 1.4;
+    text-align: center;
+    max-width: 90%;
+    transition: color 0.5s ease;
+}
+
+/* Informações de Contato (Telefone, Email, Endereço) */
+.contact-info {
+    margin-top: 50px;
+}
+.contact-info p {
+    margin-bottom: 10px;
+    font-size: 1.0em;
+    color: var(--text-light); /* Cor do texto principal */
+    text-align: center;
+    transition: color 0.5s ease;
+}
+.contact-info p strong {
+    color: var(--accent-color);
+    text-shadow: 0 0 3px var(--shadow-color);
+    transition: color 0.5s ease, text-shadow 0.5s ease;
+}
+
+
+/*====================================
+  11. Footer
+======================================*/
+footer {
+    background: var(--primary-bg);
+    color: var(--text-light); /* Cor do texto principal */
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 60px;
+    border-top: 2px solid var(--border-color);
+    box-shadow: 0 0 8px var(--shadow-color);
+    font-family: 'Roboto Mono', monospace;
+    transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+}
+/* Footer no modo claro */
+:root.light-mode footer {
+    background: var(--secondary-bg);
+    color: var(--text-light);
+    border-color: var(--border-color);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.social-links-footer {
+    margin-top: 20px;
+}
+.social-links-footer a {
+    color: var(--accent-color);
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.2s ease, text-shadow 0.3s ease;
+    font-size: 1.8em;
+}
+.social-links-footer a:hover {
+    color: var(--text-light); /* Cor do texto principal no hover */
+    text-shadow: 0 0 6px var(--accent-color), 0 0 12px var(--hover-glow);
+    transform: translateY(-3px);
+}
+
+
+/*====================================
+  12. Responsividade (Media Queries)
+======================================*/
+/* Responsividade do Menu Hambúrguer (melhorado) */
+.burger {
+    display: none;
+    cursor: pointer;
+    z-index: 100;
+    position: relative;
+}
+.burger div {
+    width: 30px;
+    height: 4px;
+    background-color: var(--accent-color);
+    margin: 6px 0;
+    transition: all 0.4s ease;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        width: 70%;
+        background-color: rgba(13, 13, 26, 0.98);
+        backdrop-filter: blur(8px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(100%);
+        transition: transform 0.6s ease-in-out, background-color 0.5s ease;
+        z-index: 99;
+    }
+    /* Nav links no modo claro */
+    :root.light-mode .nav-links {
+        background-color: rgba(255, 255, 255, 0.98);
+    }
+
+    .nav-links li {
+        opacity: 0;
+        margin: 25px 0;
+    }
+    .nav-links li a {
+        font-size: 1.5em;
+        color: var(--accent-color);
+    }
+    .burger { display: block; }
+    .nav-active { transform: translateX(0%); }
+
+    /* Animação dos links internos do menu */
+    @keyframes navLinkFade {
+        from { opacity: 0; transform: translateX(50px); }
+        to { opacity: 1; transform: translateX(0px); }
+    }
+    /* Animação do hambúrguer para 'X' */
+    .toggle .line1 { transform: rotate(-45deg) translate(-7px, 7px); }
+    .toggle .line2 { opacity: 0; }
+    .toggle .line3 { transform: rotate(45deg) translate(-7px, -7px); }
+
+    /* Ajuste para o padding das seções em telas menores */
+    .section-padding { padding: 60px 15px; }
+    .hero h1 { font-size: 2.5em; }
+    .hero p { font-size: 1.1em; }
+    h2 { font-size: 2.5em; margin-bottom: 30px; }
+    .portfolio-filters { gap: 10px; margin-top: 20px; }
+    .filter-btn { padding: 8px 18px; font-size: 0.9em; }
+    .theme-switcher { margin-right: 15px; }
+}
+
+/* Responsividade Extra para Telas Muito Pequenas (Celulares) */
+@media (max-width: 480px) {
+    .nav-links { width: 90%; }
+    .hero h1 { font-size: 2em; }
+    .hero p { font-size: 1em; }
+    .btn { padding: 12px 25px; font-size: 0.9em; }
+    h2 { font-size: 2em; }
+    .areas-grid, .services-grid, .portfolio-grid, .tech-grid, .team-grid { grid-template-columns: 1fr; }
+    .member-card { max-width: 90%; }
+    .member-card img { width: 120px; height: 120px; }
+    .portfolio-filters { flex-direction: column; align-items: center; }
+}

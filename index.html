@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mick Digital: Soluções inovadoras em Engenharia de Software para transformar suas ideias em realidade digital. Desenvolvimento web, automação, análise de dados e consultoria em TI.">
+    <title>Mick Digital - Engenharia de Software</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Mono:wght@400;700&family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="img/AM Logo.png" alt="AM Logo">
+            </div>
+            <div class="theme-switcher">
+                <button id="theme-toggle" aria-label="Alternar modo claro/escuro">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">INÍCIO</a></li>
+                <li><a href="#sobre">SOBRE</a></li>
+                <li><a href="#servicos">SERVIÇOS</a></li>
+                <li><a href="#portfolio">PORTFÓLIO</a></li>
+                <li><a href="#tecnologias">TECNOLOGIAS</a></li>
+                <li><a href="#areas">ÁREAS DE ATUAÇÃO</a></li>
+                <li><a href="#equipe">NOSSA EQUIPE</a></li>
+                <li><a href="#contato">CONTATO</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <h1 id="hero-title">TRANSFORMANDO IDEIAS EM REALIDADES DIGITAIS</h1>
+            <p>Através da Engenharia de Software, transformamos conceitos abstratos em soluções digitais funcionais e inovadoras.</p>
+            <a href="#contato" class="btn">Fale Conosco</a>
+        </section>
+
+        <section id="sobre" class="section-padding">
+            <h2>Sobre Nós</h2>
+            <p>Olá, tudo bem? Sou Andrei Mick, estudante de Sistemas da Informação e apaixonado por como a tecnologia pode simplificar o nosso dia a dia. Com uma mente naturalmente analítica e voltada à solução de problemas, estou mergulhando no mundo da análise de dados, automação e desenvolvimento de sistemas eficientes.</p>
+            <p>A Mick Digital busca uma oportunidade de estágio em TI para colocar a mão na massa, aprender com os melhores e aplicar nosso entusiasmo em construir soluções que realmente façam a diferença. Estamos prontos para absorver novos conhecimentos e contribuir ativamente para projetos inovadores. Vamos nos conectar!</p>
+        </section>
+
+        <section id="servicos" class="section-padding">
+            <h2>Nossos Serviços</h2>
+            <p>Oferecemos uma gama completa de serviços para impulsionar sua presença digital e otimizar seus processos.</p>
+            <div class="services-grid">
+                <div class="service-item">
+                    <h3><i class="fas fa-laptop-code service-icon"></i> Desenvolvimento Web Personalizado</h3>
+                    <p>Criação de websites e aplicações web sob medida, do design à implementação, com foco em usabilidade e performance.</p>
+                </div>
+                <div class="service-item">
+                    <h3><i class="fas fa-robot service-icon"></i> Automação de Processos</h3>
+                    <p>Desenvolvimento de soluções para automatizar tarefas repetitivas, aumentando a eficiência e reduzindo erros.</p>
+                </div>
+                <div class="service-item">
+                    <h3><i class="fas fa-lightbulb service-icon"></i> Consultoria em TI</h3>
+                    <p>Análise e consultoria estratégica para otimização de infraestrutura, sistemas e processos tecnológicos.</p>
+                </div>
+                <div class="service-item">
+                    <h3><i class="fas fa-chart-line service-icon"></i> Análise de Dados</h3>
+                    <p>Extração de insights valiosos a partir de seus dados para tomadas de decisão mais informadas e estratégicas.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="section-padding">
+            <h2>Nosso Portfólio</h2>
+            <p>Confira alguns de nossos projetos e veja como podemos transformar suas ideias em realidade.</p>
+
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="web-dev">Desenvolvimento Web</button>
+                <button class="filter-btn" data-filter="automation">Automação de Processos</button>
+                <button class="filter-btn" data-filter="data-analysis">Análise de Dados</button>
+                <button class="filter-btn" data-filter="consulting">Consultoria & Estratégia</button>
+            </div>
+
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="web-dev web-app">
+                    <img src="https://via.placeholder.com/400x250/00FFFF/0D0D1A?text=Sistema+Gest%C3%A3o+Financeira" alt="Sistema de Gestão Financeira">
+                    <h3>Sistema de Gestão Financeira</h3>
+                    <p>Aplicação web para controle financeiro pessoal e empresarial, com relatórios interativos e seguros.</p>
+                    <a href="#" class="btn-small">Ver Detalhes</a>
+                </div>
+                <div class="portfolio-item" data-category="automation rpa">
+                    <img src="https://via.placeholder.com/400x250/00FFFF/0D0D1A?text=Bot+Automa%C3%A7%C3%A3o+Relat%C3%B3rios" alt="Bot de Automação de Relatórios">
+                    <h3>Bot de Automação de Relatórios</h3>
+                    <p>Robô de software que automatiza a coleta e geração de relatórios diários, otimizando fluxos de trabalho.</p>
+                    <a href="#" class="btn-small">Ver Detalhes</a>
+                </div>
+                <div class="portfolio-item" data-category="web-dev web-design">
+                    <img src="https://via.placeholder.com/400x250/00FFFF/0D0D1A?text=Landing+Page+Marketing" alt="Landing Page de Campanha">
+                    <h3>Landing Page de Campanha</h3>
+                    <p>Desenvolvimento de uma landing page de alta conversão para campanhas de marketing digital específicas.</p>
+                    <a href="#" class="btn-small">Ver Detalhes</a>
+                </div>
+                <div class="portfolio-item" data-category="data-analysis web-dev">
+                    <img src="https://via.placeholder.com/400x250/00FFFF/0D0D1A?text=Dashboard+Vendas" alt="Dashboard Interativo de Vendas">
+                    <h3>Dashboard Interativo de Vendas</h3>
+                    <p>Visualização de dados complexos de vendas através de um dashboard intuitivo para tomada de decisões.</p>
+                    <a href="#" class="btn-small">Ver Detalhes</a>
+                </div>
+                <div class="portfolio-item" data-category="automation consulting">
+                    <img src="https://via.placeholder.com/400x250/00FFFF/0D0D1A?text=Otimiza%C3%A7%C3%A3o+Fluxos" alt="Otimização de Fluxos de Trabalho">
+                    <h3>Otimização de Fluxos de Trabalho</h3>
+                    <p>Análise e implementação de soluções para otimizar processos internos, aumentando a produtividade.</p>
+                    <a href="#" class="btn-small">Ver Detalhes</a>
+                </div>
+                 <div class="portfolio-item" data-category="web-dev web-app">
+                    <img src="https://via.placeholder.com/400x250/00FFFF/0D0D1A?text=Plataforma+E-learning" alt="Plataforma de E-learning Personalizada">
+                    <h3>Plataforma de E-learning</h3>
+                    <p>Desenvolvimento de uma plataforma de aprendizado online interativa, com acompanhamento de progresso.</p>
+                    <a href="#" class="btn-small">Ver Detalhes</a>
+                </div>
+                <div class="portfolio-item" data-category="data-analysis consulting">
+                    <img src="https://via.placeholder.com/400x250/00FFFF/0D0D1A?text=Relat%C3%B3rios+BI" alt="Relatórios de Business Intelligence">
+                    <h3>Relatórios de Business Intelligence</h3>
+                    <p>Criação de relatórios e dashboards avançados para análise de dados estratégicos de negócios.</p>
+                    <a href="#" class="btn-small">Ver Detalhes</a>
+                </div>
+                <div class="portfolio-item" data-category="automation web-dev">
+                    <img src="https://via.placeholder.com/400x250/00FFFF/0D0D1A?text=Integra%C3%A7%C3%A3o+APIs" alt="Integração de Sistemas via APIs">
+                    <h3>Integração de Sistemas via APIs</h3>
+                    <p>Conexão de diferentes sistemas e plataformas através de APIs para otimizar o fluxo de informações.</p>
+                    <a href="#" class="btn-small">Ver Detalhes</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="tecnologias" class="section-padding">
+            <h2>Tecnologias que Dominamos</h2>
+            <p>Utilizamos as ferramentas e linguagens mais modernas para construir soluções robustas e escaláveis.</p>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <i class="fab fa-html5 tech-icon html5-color"></i>
+                    <h3>HTML5</h3>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-css3-alt tech-icon css3-color"></i>
+                    <h3>CSS3</h3>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-js-square tech-icon js-color"></i>
+                    <h3>JavaScript</h3>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-python tech-icon python-color"></i>
+                    <h3>Python</h3>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-java tech-icon java-color"></i>
+                    <h3>Java</h3>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-database tech-icon database-color"></i>
+                    <h3>SQL</h3>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-react tech-icon react-color"></i>
+                    <h3>React</h3>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-git-alt tech-icon git-color"></i>
+                    <h3>Git</h3>
+                </div>
+            </div>
+        </section>
+
+        <section id="areas" class="section-padding">
+            <h2>Minhas Áreas de Atuação</h2>
+            <div class="areas-grid">
+                <div class="area-item">
+                    <h3>Gestão de Projetos</h3>
+                    <p>Na Mick Digital, transformamos suas ideias em soluções digitais tangíveis. Nosso foco é planejar, executar e monitorar o desenvolvimento de projetos, assegurando que sejam entregues com alta qualidade, dentro do prazo e do orçamento. Aplicamos metodologias ágeis como Scrum para coordenar equipes e recursos, mitigando riscos e garantindo que cada etapa contribua para um produto final de sucesso e alinhado aos seus objetivos.</p>
+                </div>
+                <div class="area-item">
+                    <h3>Automação de Sistemas</h3>
+                    <p>Otimizamos seus sistemas com soluções de automação precisas e eficientes. Desenvolvemos e implementamos rotinas que eliminam tarefas manuais e repetitivas, liberando sua equipe para focar em atividades mais estratégicas e inovadoras. Nosso trabalho resulta em maior eficiência operacional, redução de erros e um fluxo de trabalho mais inteligente e produtivo para sua organização.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="equipe" class="section-padding">
+            <h2>Nossa Equipe</h2>
+            <p>Conheça os pilares por trás da Mick Digital, combinando expertise técnica e visão estratégica.</p>
+            <div class="team-grid">
+                <div class="member-card">
+                    <img src="img/andreimick1.jpg" alt="Andrei Mick">
+                    <h3>Andrei Mick</h3>
+                    <p>Engenheiro de Softwares</p>
+                    <div class="member-social-links">
+                        <a href="https://www.linkedin.com/in/andrei-mick/" target="_blank" title="LinkedIn de Andrei Mick"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/AndreiMick" target="_blank" title="GitHub de Andrei Mick"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <img src="img/rayssa.png" alt="Rayssa Torre">
+                    <h3>Rayssa Mick</h3>
+                    <p>Cirurgiã-Dentista</p>
+                    <div class="member-social-links">
+                        <a href="https://www.instagram.com/torress_rayssa/" target="_blank" title="Instagram de Rayssa Torre"><i class="fab fa-instagram"></i></a>
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="section-padding">
+            <h2>Entre em Contato</h2>
+            <p>Preencha o formulário abaixo ou utilize nossos contatos diretos para falar conosco.</p>
+            <form class="contact-form" id="contactForm">
+                <input type="text" id="contact-name" name="name" placeholder="Seu Nome Completo" required>
+                <input type="email" id="contact-email" name="email" placeholder="Seu E-mail Válido" required>
+                <textarea id="contact-message" name="message" placeholder="Sua Mensagem Detalhada" required></textarea>
+                <button type="submit" class="btn">Enviar Mensagem</button>
+            </form>
+
+            <div id="successMessage" class="contact-success-message">
+                <h3><i class="fas fa-check-circle success-icon"></i> Mensagem Enviada com Sucesso!</h3>
+                <p>Obrigado pelo seu contato. Em breve retornaremos!</p>
+                <a href="#home" class="btn-small btn-volta-inicio">Voltar ao Início</a>
+            </div>
+
+            <div class="contact-info">
+                <p>Telefone: <strong>(13) 9 9709-1611</strong></p>
+                <p>Email: <strong>andreimickk@gmail.com</strong></p>
+                <p>Endereço: <strong>Guarujá, São Paulo</strong></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="current-year"></span> Andrei Mick. Todos os direitos reservados.</p>
+        <div class="social-links-footer">
+            <a href="https://www.instagram.com/andrei.mick/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/andrei-mick/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/AndreiMick" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
