@@ -1,12 +1,10 @@
-<img align="left" height="140" src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGdhYTVtZnVtZHk0Y2VrbnE2eDczajJtaWtsN252cHFod3IzMWZoaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/DbXSzkKLzy96e3uukf/giphy.gif" />
+<img align="left" height="140" src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGdhYTVtZnVtZHk0Y2VrbnE2eDczajJtaWtsN252cHFod3IzMWZoaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/DbXSzkKLzy96e3uukf/giphy.gif"/>
 
 <h1 align="center">🚀 Andrei Mick</h1>
-<h3 align="center">Civil Engineer → Data Engineer in Progress</h3>
+<h3 align="center">Civil Engineer → Data Engineer</h3>
 
 <p align="center">
-  🔹 Python | SQL | Data Analysis | Automation  
-  🔹 Engineering mindset + Data-driven decisions  
-  🔹 FPS Player 🎮 (CS is not just game, it's strategy)
+  <img src="https://readme-typing-svg.herokuapp.com/?color=00F7FF&size=22&center=true&vCenter=true&width=700&lines=Transição+para+Engenharia+de+Dados;Python+%7C+SQL+%7C+Automação;Construindo+Pipelines+de+Dados;Análise+e+Performance+em+Ambientes+Críticos;FPS+Mindset+Applied+to+Data+🎮">
 </p>
 
 ---
@@ -17,113 +15,33 @@
   <a href="https://www.linkedin.com/in/andrei-mick/" target="_blank">
     <img src="https://skillicons.dev/icons?i=linkedin" height="40"/>
   </a>
-  <a href="mailto:andreimickk@gmail.com" target="_blank">
+  <a href="mailto:andreimickk@gmail.com">
     <img src="https://skillicons.dev/icons?i=gmail" height="40"/>
   </a>
-  <a href="https://discord.gg/YZhTqn5zXW" target="_blank">
+  <a href="https://discord.gg/YZhTqn5zXW">
     <img src="https://skillicons.dev/icons?i=discord" height="40"/>
   </a>
-  <a href="https://www.instagram.com/andrei.mick/" target="_blank">
+  <a href="https://www.instagram.com/andrei.mick/">
     <img src="https://skillicons.dev/icons?i=instagram" height="40"/>
   </a>
 </div>
 
 ---
 
-<br>
+## 🧠 SOBRE MIM
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=andreimick&show_icons=true&theme=tokyonight"/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=andreimick&layout=compact&theme=tokyonight"/>
-</p>
+💡 Engenheiro Civil em transição para Dados  
+📊 Experiência com análise de performance e automação  
+⚡ Atuação em ambientes críticos com alto volume de dados  
 
----
-
-## 🧠 ABOUT ME
-
-💡 Engenheiro Civil migrando para Tecnologia com foco em Dados  
-📊 Experiência com monitoramento de sistemas críticos e análise de performance  
-⚡ Automação de processos e construção de soluções orientadas a dados  
-
-🎯 Objetivo: atuar como **Data Engineer**, criando pipelines escaláveis e eficientes  
+🎯 Foco: **Engenharia de Dados & Análise Avançada**
 
 ---
 
-## 🎮 DATA x FPS MINDSET
+## 🕹️ MINDSET
 
-| 🎯 FPS (CS) | 📊 Dados |
-|------------|--------|
-| Leitura de jogo | Análise de dados |
-| Estratégia | Arquitetura de dados |
-| Clutch | Debugging |
-| Economia | Otimização |
-
-> “Sem informação é rush — com dados é estratégia.”
-
----
-
-## 🛠️ TECH STACK
-
-### 💻 Linguagens
-<div>
-  <img src="https://skillicons.dev/icons?i=python" height="40"/>
-  <img src="https://skillicons.dev/icons?i=mysql" height="40"/>
-  <img src="https://skillicons.dev/icons?i=html" height="40"/>
-</div>
-
----
-
-### 📊 Data & Analytics
-<div>
-  <img src="https://skillicons.dev/icons?i=pandas" height="40"/>
-  <img src="https://skillicons.dev/icons?i=numpy" height="40"/>
-  <img src="https://skillicons.dev/icons?i=powerbi" height="40"/>
-</div>
-
-🔹 Excel Avançado  
-🔹 Dashboards  
-🔹 Data Cleaning & Transformation  
-
----
-
-### ⚙️ Tools & Workflow
-<div>
-  <img src="https://skillicons.dev/icons?i=git" height="40"/>
-  <img src="https://skillicons.dev/icons?i=github" height="40"/>
-  <img src="https://skillicons.dev/icons?i=vscode" height="40"/>
-</div>
-
----
-
-### 🚀 Data Engineering (em evolução)
-<div>
-  <img src="https://skillicons.dev/icons?i=aws" height="40"/>
-  <img src="https://skillicons.dev/icons?i=azure" height="40"/>
-  <img src="https://skillicons.dev/icons?i=docker" height="40"/>
-</div>
-
-🔹 ETL / ELT  
-🔹 APIs (REST)  
-🔹 Data Warehousing  
-🔹 Pipelines  
-
----
-
-## 📈 EXPERIENCE
-
-💼 **Vivo (Telefônica Brasil)**  
-- Monitoramento de ambientes críticos  
-- Automação com Python  
-- Análise de performance  
-- Mapeamento de pipelines  
-
----
-
-## 📦 PROJECTS (BUILDING...)
-
-```bash
-📁 data-analysis-python
-📁 sql-performance-insights
-📁 automated-etl-pipeline
-📁 dashboard-powerbi
-📁 api-data-integration
+```diff
++ Dados = visão de jogo
++ Pipeline = estratégia
++ Automação = consistência
++ Sem dado = rush no escuro
